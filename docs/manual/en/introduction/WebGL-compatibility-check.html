@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<base href="../../../" />
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<h1>[name]</h1>
+		<p>
+			Even though this is becoming less and less of a problem, some devices or browsers may still not support WebGL.
+			The following method allows you to check if it is supported and display a message to the user if it is not.
+		</p>
+
+		<p>
+			Add	[link:https://github.com/Bruno-Odinukweze/PyWeb3D/tree/main/examples/webGL.py]
+			to your Python code and run the following before attempting to render anything.
+		</p>
+
+		<code>
+			if isWebGLAvailable():
+			# Initiate function or other initializations here
+			animate()
+		else:
+			warning = getWebGLErrorMessage()
+			try:
+				document.getElementById( 'container' ).appendChild( warning )
+			except:
+				container = document.createElement('div')
+				container.appendChild(warning)
+				document.body.appendChild(container)
+		</code>
+	</body>
+</html>

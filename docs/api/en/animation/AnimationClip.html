@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../../" />
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<h1>[name]</h1>
+
+		<p class="desc">
+			An [name] is a reusable set of keyframe tracks which represent an animation.<br /><br />
+
+			For an overview of the different elements of the three.js animation system see the
+			"Animation System" article in the "Next Steps" section of the manual.
+		</p>
+
+
+		<h2>Constructor</h2>
+
+
+		<h3>[name]( [param:str name], [param:int duration], [param:list tracks] )</h3>
+		<p>
+			[page:str name] - a name for this clip.<br />
+			[page:int duration] - the duration of this clip (in seconds). If a negative value is passed,
+			the duration will be calculated from the passed `tracks` list.<br />
+			[page:list tracks] - a list of [page:KeyframeTrack KeyframeTracks].<br />
+			[page:int blendMode] - defines how the animation is blended/combined when two or more animations are simultaneously played.<br /><br />
+
+
+			Note: Instead of instantiating an AnimationClip directly with the constructor, you can use one
+			of its static methods to create AnimationClips: from JSON ([page:.parse parse]), from morph
+			target sequences ([page:.CreateFromMorphTargetSequence CreateFromMorphTargetSequence],
+			[page:.CreateClipsFromMorphTargetSequences CreateClipsFromMorphTargetSequences]) or from
+			animation hierarchies ([page:.parseAnimation parseAnimation]) - if your model doesn't already
+			hold AnimationClips in its geometry's animations list.
+		</p>
+
+		<h2>Instance Attributes</h2>
+
+		<h3>[property:int blendMode]</h3>
+		<p>
+			Defines how the animation is blended/combined when two or more animations are simultaneously played. 
+			Valid values are *NormalAnimationBlendMode* (default) and *AdditiveAnimationBlendMode*.
+		</p>
+
+		<h3>[property:int duration]</h3>
+		<p>
+			The duration of this clip (in seconds). This can be calculated from the [page:.tracks tracks]
+			list via [page:.resetDuration resetDuration].
+		</p>
+
+		<h3>[property:str name]</h3>
+		<p>
+			A name for this clip. A certain clip can be searched via [page:.findByName findByName].
+		</p>
+
+		<h3>[property:list tracks]</h3>
+		<p>
+			A list containing a [page:KeyframeTrack] for each property that are animated by this clip.
+		</p>
+
+		<h3>[property:str uuid]</h3>
+		<p>
+			The [link:http://en.wikipedia.org/wiki/Universally_unique_identifier UUID] of this clip instance.
+			It gets automatically assigned and shouldn't be edited.
+		</p>
+
+
+		<h2>Methods</h2>
+
+
+		<h3>[method:AnimationClip clone]()</h3>
+		<p>
+			Returns a copy of this clip.
+		</p>
+
+		<h3>[method:self optimize]()</h3>
+		<p>
+			Optimizes each track by removing equivalent sequential keys (which are common in morph target
+			sequences).
+		</p>
+
+		<h3>[method:self resetDuration]()</h3>
+		<p>
+			Sets the [page:.duration duration] of the clip to the duration of its longest
+			[page:KeyframeTrack].
+		</p>
+
+		<h3>[method:dict toJSON]()</h3>
+		<p>
+			Returns a JSON object representing the serialized animation clip.
+		</p>
+
+		<h3>[method:self trim]()</h3>
+		<p>
+			Trims all tracks to the clip's duration.
+		</p>
+
+		<h3>[method:bool validate]()</h3>
+		<p>
+			Performs minimal validation on each track in the clip. Returns `True` if all tracks are valid.
+		</p>
+
+
+		<h2>Static Methods</h2>
+
+
+		<h3>[method:list CreateClipsFromMorphTargetSequences]( [param:str name], [param:list morphTargetSequence], [param:int fps], [param:bool noLoop] )</h3>
+		<p>
+			Returns a list of new AnimationClips created from the morph
+			target sequences of a geometry, trying to sort morph target names into animation-group-based
+			patterns like "Walk_001, Walk_002, Run_001, Run_002 ...".
+		</p>
+
+		<h3>[method:AnimationClip CreateFromMorphTargetSequence]( [param:str name], [param:list morphTargetSequence], [param:int fps], [param:bool noLoop] )</h3>
+		<p>
+			Returns a new AnimationClip from the passed morph targets list of a geometry, taking a name and the number of frames per second.<br /><br />
+
+			Note: The fps parameter is required, but the animation speed can be overridden in an
+			`AnimationAction` via [page:AnimationAction.setDuration animationAction.setDuration].
+		</p>
+
+		<h3>[method:AnimationClip findByName]( [param:dict objectOrClipArray], [param:str name] )</h3>
+		<p>
+			Searches for an AnimationClip by name, taking as its first parameter either a list of
+			AnimationClips, or a mesh or geometry that contains a list named "animations".
+		</p>
+
+		<h3>[method:AnimationClip parse]( [param:dict json] )</h3>
+		<p>
+			Parses a JSON representation of a clip and returns an AnimationClip.
+		</p>
+
+		<h3>[method:AnimationClip parseAnimation]( [param:dict animation], [param:list bones] )</h3>
+		<p>
+			Parses the animation.hierarchy format and returns an AnimationClip.
+		</p>
+
+		<h3>[method:dict toJSON]( [param:AnimationClip clip] )</h3>
+		<p>
+			Takes an AnimationClip and returns a JSON.
+		</p>
+
+
+		<!-- <h2>Source</h2>
+
+
+		<p>
+			[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+		</p> -->
+	</body>
+</html>

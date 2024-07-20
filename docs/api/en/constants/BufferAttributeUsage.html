@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../../" />
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<h1>Buffer Attribute Usage Constants</h1>
+
+		<p>
+			The usage constants can be used to provide a hint to the API regarding how the geometry buffer attribute will be used in order to optimize performance.
+		</p>
+
+		<p>
+			<strong>Note:</strong> All constant variables are imported from PyWeb3D. Assuming you imported PyWeb3D as follow:
+			<code>
+				from pyweb3d.pyweb3d import *
+			</code>
+		</p>
+
+		<h2>Code Example</h2>
+
+		<code>
+		geometry = BufferGeometry()
+		positionAttribute = BufferAttribute( myList, 3 , False )
+		positionAttribute.setUsage( DynamicDrawUsage )
+		geometry.setAttribute( 'position', positionAttribute )
+		</code>
+
+		<!-- <h2>Examples</h2>
+		<p>[example:webgl_buffergeometry_drawrange materials / buffergeometry / drawrange ]</p> -->
+
+		<h2>Geometry Usage</h2>
+		<code>
+		StaticDrawUsage
+		DynamicDrawUsage
+		StreamDrawUsage
+
+		StaticReadUsage
+		DynamicReadUsage
+		StreamReadUsage
+
+		StaticCopyUsage
+		DynamicCopyUsage
+		StreamCopyUsage
+		</code>
+
+		For more detailed information on each of these constants see [link:https://www.khronos.org/opengl/wiki/Buffer_Object#Buffer_Object_Usage this OpenGL documentation].
+
+		<!-- <h2>Source</h2>
+
+		<p>
+			[link:https://github.com/mrdoob/three.js/blob/master/src/constants.js src/constants.js]
+		</p> -->
+	</body>
+</html>

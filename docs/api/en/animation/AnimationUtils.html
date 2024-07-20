@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../../" />
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<h1>[name]</h1>
+
+		<p class="desc">
+		An object with various functions to assist with animations, used internally.
+		</p>
+
+
+		<h2>Methods</h2>
+
+
+		<h3>[method:list arraySlice]( list, from, to )</h3>
+		<p>
+		This method works the same way as Python `slice`, or JavaScript `Array.prototype.slice` but also works on typed arrays in JavaScript. Examples of JavaScript typed array: `Int8Array`, `Uint8Array`, `Uint8ClampedArray` and more.
+		</p>
+
+		<h3>[method:list convertArray]( list, type, forceClone )</h3>
+		<p>
+		Converts a list to a specific type in JavaScript.
+		</p>
+
+		<h3>[method:list flattenJSON]( jsonKeys, times, values, valuePropertyName )</h3>
+		<p>
+		Used for parsing AOS keyframe formats.
+		</p>
+
+		<h3>[method:list getKeyframeOrder]( times )</h3>
+		<p>
+		Returns a list by which times and values can be sorted.
+		</p>
+
+		<h3>[method:bool isTypedArray]( object )</h3>
+		<p>
+		Returns `True` if the object is a JavaScript typed array.
+		</p>
+
+		<h3>[method:AnimationClip makeClipAdditive]( [param:AnimationClip targetClip], [param:int referenceFrame], [param:AnimationClip referenceClip], [param:int fps] )</h3>
+		<p>
+		Converts the keyframes of the given animation clip to an additive format.
+		</p>
+
+		<h3>[method:list sortedArray]( values, stride, order )</h3>
+		<p>
+		Sorts the array previously returned by [page:AnimationUtils.getKeyframeOrder getKeyframeOrder].
+		</p>
+
+		<h3>[method:AnimationClip subclip]( [param:AnimationClip clip], [param:str name], [param:int startFrame], [param:int endFrame], [param:int fps] )</h3>
+		<p>
+		Creates a new clip, containing only the segment of the original clip between the given frames.
+		</p>
+
+
+	</body>
+</html>

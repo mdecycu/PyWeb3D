@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../../" />
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		[page:Object3D] &rarr;
+
+		<h1>[name]</h1>
+
+		<p class="desc">
+			The [name] represents a virtual [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioListener listener] of all the positional and non-positional audio effects in the scene.<br />
+			A PyWeb3D application usually creates a single instance of [name]. It is a mandatory construtor parameter for audios entities like [page:Audio Audio] and [page:PositionalAudio PositionalAudio].<br />
+			In most cases, the listener object is a child of the camera. So the 3D transformation of the camera represents the 3D transformation of the listener.
+		</p>
+
+		<h2>Code Example</h2>
+
+		<code>
+		# create an AudioListener and add it to the camera
+		listener = AudioListener()
+		camera.add( listener )
+
+		# create a global audio source
+		const sound = Audio( listener )
+
+		# load a sound and set it as the Audio object's buffer
+		audioLoader = AudioLoader()
+
+		def audio_settings(buffer):
+			sound.setBuffer( buffer )
+			sound.setLoop( True )
+			sound.setVolume( 0.5 )
+			sound.play()
+
+		audioLoader.load( 'sounds/ambient.ogg', audio_settings)
+		</code>
+
+		<h2>Examples</h2>
+
+		<p>
+			[example:webaudio_play_audio play / audio ]<br />
+		</p>
+
+		<h2>Constructor</h2>
+
+
+		<h3>[name](  )</h3>
+		<p>
+		Create a new AudioListener.
+		</p>
+
+
+		<h2>Instance Attributes</h2>
+
+		<h3>[property:AudioContext context]</h3>
+		<p>The [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext AudioContext] of the [page:AudioListener listener] given in the constructor.</p>
+
+		<h3>[property:GainNode gain]</h3>
+		<p>A [link:https://developer.mozilla.org/en-US/docs/Web/API/GainNode GainNode] created
+		using [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createGain AudioContext.createGain]().</p>
+
+		<h3>[property:AudioNode filter]</h3>
+		<p>Default is `None`.</p>
+
+		<h3>[property:int timeDelta]</h3>
+		<p>Time delta value for audio entities. Use in context of [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioParam/linearRampToValueAtTime AudioParam.linearRampToValueAtTimeDefault](). Default is .</p>
+
+		<h2>Methods</h2>
+
+
+		<h3>[method:GainNode getInput]()</h3>
+		<p>
+		Return the [page:AudioListener.gain gainNode].
+		</p>
+
+		<h3>[method:self removeFilter]()</h3>
+		<p>
+		Set the [page:AudioListener.filter filter] attribute to `None`.
+		</p>
+
+		<h3>[method:AudioNode getFilter]()</h3>
+		<p>
+		Returns the value of the [page:AudioListener.filter filter] attribute.
+		</p>
+
+		<h3>[method:self setFilter]( [param:AudioNode value] )</h3>
+		<p>
+		Set the [page:AudioListener.filter filter] attribute to `value`.
+		</p>
+
+		<h3>[method:float getMasterVolume]()</h3>
+		<p>
+		Return the volume.
+		</p>
+
+		<h3>[method:self setMasterVolume]( [param:Number value] )</h3>
+		<p>
+		Set the volume.
+		</p>
+	</body>
+</html>
